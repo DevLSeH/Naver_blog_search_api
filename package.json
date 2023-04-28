@@ -1,0 +1,24 @@
+{
+  "name": "naver_blog_search",
+  "version": "1.0.0",
+  "description": "to search Naner-blog in node.js&typeScript",
+  "repository": "https://github.com/DevLSeH/Naver_blog_search_api.git",
+  "main": "app.js",
+  "author": "shaan",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./bin.app.js",
+    "dev": "ts-node ./src/app.ts"
+  },
+  "dependencies": {
+    "@types/node": "^18.16.2",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "packageManager": "yarn@3.5.0"
+}
