@@ -1,3 +1,3 @@
-yarn.lock
-.env
-.yarn
+*yarn.lock
+*.env
+*.yarn
