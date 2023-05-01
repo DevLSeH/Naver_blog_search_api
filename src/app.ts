@@ -1,9 +1,9 @@
-import dotenv from 'dotenv'
-import axios from 'axios'
-import { Url } from 'url';
-dotenv.config(); /** .env 파일 참조를 위한 함수 */
+import dotenv from "dotenv"
+import axios from "axios"
+import { Url } from "url";
+dotenv.config(); // .env 파일 참조를 위한 함수 
 
-/* 블로그 정보를 담을 오브젝트 타입 정의 */
+// 블로그 정보를 담을 오브젝트 타입 정의
 interface blogObject {
   link: Url,
   name: string,
@@ -11,8 +11,8 @@ interface blogObject {
   description: string,
 }
 
-/* 기본 url 지정 및 헤더에 포함해야하는 id와 secret key 입력 */
-/* id와 secret key는 노출되지 않도록 .env 파일에서 참조 */
+// 기본 url 지정 및 헤더에 포함해야하는 id와 secret key 입력
+// id와 secret key는 노출되지 않도록 .env 파일에서 참조 
 const apiClient = axios.create({
   baseURL: "https://openapi.naver.com/v1",
   headers: {
@@ -29,12 +29,13 @@ const blogUrls = async (keyword: string, maxResults: number) => {
       params: {
         query: keyword,
         display: maxResults,
-        sort: 'sim', /** 정렬 방식, sim(정확도) 또는 date(날짜) */
+        sort: "sim", //정렬 방식, sim(정확도) 또는 date(날짜)
       },
     })
     const data = response.data;
-    let result = []; /** 결과를 저장할 배열 선언 */
-    for (let i = 0; i < maxResults; i++) { /** api 호출 결과로 받은 데이터를 차례로 순회하며 필요한 정보 추출 */
+    let result = []; // 결과를 저장할 배열 선언 
+    // api 호출 결과로 받은 데이터를 차례로 순회하며 필요한 정보 추출
+    for (let i = 0; i < maxResults; i++) {
       const blog = data.items[i];
       const blogname = blog.bloggername;
       const postLink = blog.link;
@@ -60,4 +61,5 @@ const blogUrls = async (keyword: string, maxResults: number) => {
   }
 }
 
-blogUrls('닥터지', 2);  /** 선언한 api 함수 호출 */
+// 선언한 api 함수 호출 
+blogUrls("닥터지", 2);  
